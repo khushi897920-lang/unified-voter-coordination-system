@@ -7,12 +7,21 @@ from reference_layer import create_reference, get_reference
 from migration_workflow import request_migration, approve_migration
 from voting_layer import allow_vote, mark_voted
 from ai_advisory import detect_possible_duplicates, detect_suspicious_activity
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Unified Voter Coordination System (PoC)")
-
+# Enable CORS for all origins (for testing purposes)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Dependency to get DB session
 def get_db():

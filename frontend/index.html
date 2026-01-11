@@ -1,18 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Unified Voter Coordination System</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <h1>Unified Voter Coordination System</h1>
+  <p class="subtitle">Minimal working prototype for secure voting flow</p>
 
-  <button onclick="castVote()">Cast Vote</button>
+  <div class="card">
+    <h2>Voter Demo Panel</h2>
 
-  <pre id="output"></pre>
+    <input
+      type="text"
+      id="refId"
+      placeholder="Enter Reference ID"
+    />
+
+    <div class="buttons">
+      <button onclick="checkStatus()">Check Status</button>
+      <button onclick="castVote()">Cast Vote</button>
+    </div>
+
+    <p id="output"></p>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
